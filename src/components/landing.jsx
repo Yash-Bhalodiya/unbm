@@ -4,7 +4,7 @@ import { motion } from "motion/react"
 const Landing = () => {
     return (
         <div className='relative top-0 left-0 bg-black text-2xl h-screen w-screen overflow-x-hidden'>
-            <div id='prName' className='relative text-white md:left-32 md:top-1/2 left-1/5 top-24'><motion.h1 initial={{opacity:0,y:-100}} animate={{y:0,opacity:100}} transition={{duration:1}} className='text-6xl underline md:left-0 -left-10 relative'>Urban Nexus</motion.h1><br></br><motion.h3 initial={{opacity:0,y:100}} animate={{y:0,opacity:100}} transition={{duration:1}} className='text-3xl -mt-5 tracking-widest'>Business Mapper</motion.h3></div>
+            <div id='prName' className='relative text-white md:left-32 md:top-1/2 left-1/6 top-24'><motion.h1 initial={{opacity:0,y:-100}} animate={{y:0,opacity:100}} transition={{duration:1}} className='text-6xl underline md:left-0 -left-10 relative'>Urban Nexus</motion.h1><br></br><motion.h3 initial={{opacity:0,y:100}} animate={{y:0,opacity:100}} transition={{duration:1}} className='text-3xl -mt-5 tracking-widest'>Business Mapper</motion.h3></div>
         
         <motion.div
       initial={{ opacity: 0 }}
