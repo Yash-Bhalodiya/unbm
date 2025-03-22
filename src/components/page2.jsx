@@ -4,7 +4,7 @@ import Card from './card';
 
 const Page2 = () => {
     return (
-        <div className='h-screen w-screen relative '>
+        <div className='h-screen w-screen relative text-white '>
             <motion.h2 initial={{opacity:0,y:10}} animate={{y:0}} whileInView={{opacity:100}} transition={{duration:1}} className='relative md:left-1/3 left-10 text-2xl font-bold p-5  md:text-3xl top-20'>Drive Success with Comprehensive Functionality</motion.h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 h-auto w-full">
   <Card 

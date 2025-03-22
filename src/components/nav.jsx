@@ -40,7 +40,7 @@ export default function Navbar() {
           </div>
           <div className="flex items-center gap-3">
             <i className="fa-solid fa-user"></i>
-            <span>User</span>
+            <span>Login</span>
           </div>
         </div>
       </div>

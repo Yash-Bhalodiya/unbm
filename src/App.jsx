@@ -13,7 +13,7 @@ function App() {
       <div className='overflow-x-hidden'> 
           <NAV></NAV>
           <LANDING></LANDING>
-          <hr className='h-5 md:w-4/5 w-4/5 top-10 md:left-32 left-10  relative'></hr>
+          <hr className='h-5 md:w-4/5 w-4/5 top-10 md:left-32 left-10 text-white  relative'></hr>
           <Page2></Page2>
       </div>
     </>
