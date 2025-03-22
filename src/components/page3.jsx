@@ -1,9 +1,17 @@
 import React from 'react';
+import { motion } from "motion/react";
+import './page3style.css';
 
 const Page3 = () => {
     return (
-        <div>
-            
+        <div className='h-screen w-screen top-100'>
+            <motion.h2 initial={{opacity:0,y:20}} whileInView={{opacity:100,y:0}} transition={{duration:1}} className='text-white relative text-4xl left-1/3 font-bold top-1/5'>Used across a wide range of areas</motion.h2>
+            <motion.p initial={{opacity:0,y:20}} whileInView={{opacity:100,y:0}} transition={{duration:1}} className='h-auto w-auto text-white text-xl left-1/5 relative top-1/4 ml-5'>Our site selection solutions are trusted by market leaders across all areas of the retail industry, including:</motion.p>
+            <div className='h-full relative w-screen ml-5 flex gap-10 left-1/12'>
+            <motion.div className='cardData h-1/3 w-1/4 bg-orange-400 rounded-md relative top-1/2 flex justify-center items-center' initial={{opacity:0}} whileInView={{opacity:100}} transition={{duration:1}} ><i class="fa-solid fa-store p-7 text-7xl"></i><p className='text-3xl p-5 font-bold'>Ghost Kitchens & Stores</p></motion.div>
+            <motion.div className='cardData h-1/3 w-1/4 bg-orange-400 rounded-md relative top-1/2 flex justify-center items-center' initial={{opacity:0}} whileInView={{opacity:100}} transition={{duration:1}}><i class="fa-solid fa-truck p-7 text-7xl"></i><p className='text-3xl p-5 font-bold'>Distribution Centers</p></motion.div>
+            <motion.div className='cardData h-1/3 w-1/4 bg-orange-400 rounded-md relative top-1/2 flex justify-center items-center' initial={{opacity:0}} whileInView={{opacity:100}} transition={{duration:1}}><i class="fa-solid fa-car p-7 text-7xl"></i><p className='text-3xl p-5 font-bold'>Showrooms</p></motion.div>
+            </div>
         </div>
     );
 }
