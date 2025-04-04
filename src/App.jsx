@@ -1,27 +1,35 @@
-import { useState } from 'react'
-import './index.css'
-import './App.css'
-import { motion } from "motion/react"
-import NAV from './components/nav';
-import LANDING from './components/landing';
-import Page2 from './components/page2';
-import Page3 from './components/page3';
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import "./index.css";
+import "./App.css";
+import NAV from "./components/nav";
+import DashboardNav from "./components/dashboardNav"; 
+import LANDING from "./components/landing";
+import Page2 from "./components/page2";
+import Page3 from "./components/page3";
+import Dashboard from "./components/dashboard"; 
 
-
-function App() {
+function Layout() {
+  const location = useLocation();
 
   return (
-    <>
-      <div className='overflow-x-hidden'> 
-          <NAV></NAV>
-          <LANDING></LANDING>
-          <hr className='h-5 md:w-4/5 w-4/5 top-10 md:left-32 left-10 text-white  relative'></hr>
-          <Page2></Page2>
-          <hr className='h-5 md:w-4/5 w-4/5 top-24 md:top-10 md:left-32 left-10 text-white relative '></hr>
-          <Page3></Page3>
-      </div>
-    </>
-  )
+    <div className="overflow-x-hidden">
+      {/* Render different Navbars based on route */}
+      {location.pathname === "/dashboard" ? <DashboardNav /> : <NAV />}
+
+      <Routes>
+        <Route path="/" element={<LANDING />} />
+        <Route path="/dashboard" element={<Dashboard />} /> {/* FIXED */}
+        <Route path="/page2" element={<Page2 />} />
+        <Route path="/page3" element={<Page3 />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <Router>
+      <Layout />
+    </Router>
+  );
+}
