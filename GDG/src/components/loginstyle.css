@@ -1,0 +1,174 @@
+form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #999;
+    outline: none;
+  }
+  
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body, html {
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1522199710521-72d69614c702?fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  
+  .background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+  }
+  
+  .login-card {
+    width: 850px;
+    max-width: 90%;
+    height: 500px;
+    margin: 50px auto;
+    display: flex;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Left Panel */
+  .left-panel {
+    background-color: #000;
+    color: white;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .left-panel h1 {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .left-panel p {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  /* Right Panel */
+  .right-panel {
+    width: 60%;
+    padding: 40px;
+    position: relative;
+    background-color: white;
+  }
+  
+  .back-link {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 14px;
+    color: #6c757d;
+    text-decoration: none;
+  }
+  
+  .right-panel h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .subtext {
+    color: #8a8f98;
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    border-radius: 6px;
+  }
+  
+  .remember {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .remember input {
+    margin-right: 8px;
+  }
+  
+  .register-btn {
+    background-color: #c6d900;
+    color: black;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .register-btn:hover {
+    background-color: #b2c800;
+  }
+  
+  .signup {
+    font-size: 14px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .signup a {
+    color: orange;
+    text-decoration: none;
+  }
+  
