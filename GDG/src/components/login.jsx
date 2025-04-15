@@ -1,50 +1,60 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './style.css'; // Make sure style.css is in the same folder or adjust the path
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase"; // make sure the path to firebase config is correct
 
-const Login = () => {
+export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      
+      navigate("/"); // ✅ Redirect to landing page
+    } catch (error) {
+      alert(`Login failed: ${error.message}`);
+    }
+  };
+
   return (
-    <div className="background-blur">
-      <div className="login-card">
-        {/* Left panel */}
-        <div className="left-panel">
-          <h1>Urban Nexus:</h1>
-          <p>Business Mapper</p>
-        </div>
-
-        {/* Right panel */}
-        <div className="right-panel">
-          <Link to="/" className="back-link">&larr; Back</Link>
-          <h2>Login</h2>
-          <p className="subtext">
-            If you are already an Admin, you can login with your email address and password.
-          </p>
-
-          <form>
-            <label htmlFor="username">Username</label>
-            <input type="text" id="username" placeholder="Enter your username" required />
-
-            <label htmlFor="email">Email address</label>
-            <input type="email" id="email" placeholder="Enter your email" required />
-
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password" required />
-
-            <div className="remember">
-              <input type="checkbox" id="remember" />
-              <label htmlFor="remember">Remember me</label>
-            </div>
-
-            <button type="submit" className="register-btn">Register Account</button>
-
-            <p className="signup">
-              Don't have an account? <a href="#">Sign up here</a>
-            </p>
-          </form>
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full mb-4 p-2 border border-gray-300 rounded"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full mb-4 p-2 border border-gray-300 rounded"
+            required
+          />
+          <button
+            type="submit"
+            className="w-full bg-purple-600 text-white p-2 rounded hover:bg-purple-700"
+          >
+            Login
+          </button>
+        </form>
+        <p className="mt-4 text-center text-sm">
+          Don’t have an account?{" "}
+          <Link to="/signup" className="text-purple-600 hover:underline font-medium">
+            Sign up here
+          </Link>
+        </p>
       </div>
     </div>
   );
-};
-
-export default Login;
+}

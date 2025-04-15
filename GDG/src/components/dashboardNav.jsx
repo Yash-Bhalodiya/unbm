@@ -5,13 +5,14 @@ export default function DashboardNav() {
   return (
     <div>
       <nav className="h-16 w-screen bg-blue-600 flex items-center justify-between px-5 fixed top-0 text-white">
-        <h2 className="font-bold text-2xl">Dashboard</h2>
+        <Link to="/">
+        <h2 className="text-2xl font-bold text-gray-800">Urban Nexus</h2>
+        </Link>
+       
         <div className="h-16 flex items-center gap-8 text-2xl">
-          <Link to="/">
-            <i className="fa-solid fa-arrow-left cursor-pointer"></i> {/* Back to Home */}
+          <Link to="/profile">
+            <i className="fa-solid fa-user md:visible invisible cursor-pointer"></i>
           </Link>
-          <i className="fa-solid fa-cog cursor-pointer"></i> {/* Settings */}
-          <i className="fa-solid fa-user cursor-pointer"></i> {/* Profile */}
         </div>
       </nav>
       {/* Add margin below the navbar */}

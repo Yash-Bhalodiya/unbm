@@ -45,6 +45,7 @@ export default function GoogleMapComponent({
           }}
         />
       )}
+      
 
       {/* 📍 Existing Business Markers */}
       {places.map((place, idx) => (
