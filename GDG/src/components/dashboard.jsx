@@ -105,11 +105,9 @@ export default function Dashboard() {
           onChange={(e) => setSelectedBusiness(e.target.value)}
           className="border p-2 rounded"
         >
-          <option value="restaurant">Restaurant</option>
-          <option value="hospital">Hospital</option>
-          <option value="school">School</option>
-          <option value="hotel">Hotel</option>
-          <option value="shopping_mall">Shopping Mall</option>
+          <option value="bakery">Cake Shop</option>
+          <option value="pharmacy">Pharmacy</option>
+          <option value="laundry">Laundry</option>
         </select>
         <button onClick={generateHeatmap} className="bg-red-500 text-white px-4 py-2 rounded">
           Show Heatmap
