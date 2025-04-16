@@ -8,7 +8,7 @@ import {
 
 const mapContainerStyle = {
   width: "100%",
-  height: "500px",
+  height: "600px",
 };
 
 const libraries = ["visualization", "places"];

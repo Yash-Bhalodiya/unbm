@@ -34,6 +34,7 @@ function Layout() {
           path="/"
           element={
             <>
+            
               <LANDING />
               <Page2 />
               <Page3 />

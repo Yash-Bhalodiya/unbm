@@ -150,113 +150,112 @@ export default function Dashboard() {
     }));
   };
 
-  return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex flex-grow">
-        {/* Sidebar */}
-        <aside className="bg-[#229799] w-full max-w-xs p-5 space-y-4 text-white">
-          <h1 className="text-xl font-bold">Business Input</h1>
+return (
+  <div className="flex h-screen overflow-hidden">
+    {/* Sidebar */}
+    <aside className="bg-[#48CFCB] w-80 p-5 space-y-4 text-white flex-shrink-0 overflow-y-auto">
+      <h1 className="text-xl font-bold">Business Input</h1>
 
-          <label className="block font-semibold">Type of Business</label>
-          <select
-            value={selectedBusiness}
-            onChange={(e) => setSelectedBusiness(e.target.value)}
-            className="w-full p-2 rounded border text-black"
-          >
-            <option value="bakery">Cake Shop</option>
-            <option value="pharmacy">Pharmacy</option>
-            <option value="laundry">Laundry</option>
-          </select>
+      <label className="block font-semibold text-[#F8FAFC]">Type of Business</label>
+      <select
+        value={selectedBusiness}
+        onChange={(e) => setSelectedBusiness(e.target.value)}
+        className="w-full p-2 rounded border border-[#CBD5E1] text-black bg-[#F1F5F9]"
+      >
+        <option value="bakery">Cake Shop</option>
+        <option value="pharmacy">Pharmacy</option>
+        <option value="laundry">Laundry</option>
+      </select>
 
-          <label className="block font-semibold">Location</label>
-          <input
-            type="text"
-            placeholder="E.g. Pune City"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            className="w-full p-2 border rounded text-black"
-          />
+      <label className="block font-semibold text-[#F8FAFC]">Location</label>
+      <input
+        type="text"
+        placeholder="E.g. Pune City"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+        className="w-full p-2 border border-[#CBD5E1] rounded text-black bg-[#F1F5F9]"
+      />
 
-          <label className="block font-semibold">Target Customers</label>
-          <select
-            value={targetCustomers}
-            onChange={(e) => setTargetCustomers(e.target.value)}
-            className="w-full p-2 rounded border text-black"
-          >
-            <option>Family</option>
-            <option>Students</option>
-          </select>
+      <label className="block font-semibold text-[#F8FAFC]">Target Customers</label>
+      <select
+        value={targetCustomers}
+        onChange={(e) => setTargetCustomers(e.target.value)}
+        className="w-full p-2 rounded border border-[#CBD5E1] text-black bg-[#F1F5F9]"
+      >
+        <option>Family</option>
+        <option>Students</option>
+      </select>
 
-          <label className="block font-semibold">Nearby Competition</label>
-          <select
-            value={competition}
-            onChange={(e) => setCompetition(e.target.value)}
-            className="w-full p-2 rounded border text-black"
-          >
-            <option>Low</option>
-            <option>Medium</option>
-            <option>High</option>
-          </select>
+      <label className="block font-semibold text-[#F8FAFC]">Nearby Competition</label>
+      <select
+        value={competition}
+        onChange={(e) => setCompetition(e.target.value)}
+        className="w-full p-2 rounded border border-[#CBD5E1] text-black bg-[#F1F5F9]"
+      >
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select>
 
-          <label className="block font-semibold">Working Hours</label>
-          <select
-            value={workingHours}
-            onChange={(e) => setWorkingHours(e.target.value)}
-            className="w-full p-2 rounded border text-black"
-          >
-            <option>9AM-9PM</option>
-            <option>24/7</option>
-            <option>Custom Hours</option>
-          </select>
+      <label className="block font-semibold text-[#F8FAFC]">Working Hours</label>
+      <select
+        value={workingHours}
+        onChange={(e) => setWorkingHours(e.target.value)}
+        className="w-full p-2 rounded border border-[#CBD5E1] text-black bg-[#F1F5F9]"
+      >
+        <option>9AM-9PM</option>
+        <option>24/7</option>
+        <option>Custom Hours</option>
+      </select>
 
-          <label className="block font-semibold">Delivery Services</label>
-          <select
-            value={delivery}
-            onChange={(e) => setDelivery(e.target.value)}
-            className="w-full p-2 rounded border text-black"
-          >
-            <option>Yes</option>
-            <option>No</option>
-          </select>
+      <label className="block font-semibold text-[#F8FAFC]">Delivery Services</label>
+      <select
+        value={delivery}
+        onChange={(e) => setDelivery(e.target.value)}
+        className="w-full p-2 rounded border border-[#CBD5E1] text-black bg-[#F1F5F9]"
+      >
+        <option>Yes</option>
+        <option>No</option>
+      </select>
 
-          <div className="space-y-2 pt-4">
-            <button
-              onClick={handleSearch}
-              className="w-full bg-blue-600 text-white px-4 py-2 rounded"
-            >
-              Search Location
-            </button>
-            <button
-              onClick={generateHeatmap}
-              className="w-full bg-red-500 text-white px-4 py-2 rounded"
-            >
-              Generate Heatmap
-            </button>
-            <button
-              onClick={fetchBusinessMarkers}
-              className="w-full bg-green-600 text-white px-4 py-2 rounded"
-            >
-              Find Similar Businesses
-            </button>
-            <button
-              onClick={callGeminiForSuggestions}
-              className="w-full bg-yellow-400 text-black px-4 py-2 rounded font-bold"
-            >
-              Get Gemini Suggestions
-            </button>
-          </div>
-        </aside>
-
-        {/* Map */}
-        <main className="flex-grow">
-          <GoogleMapComponent
-            mapCenter={mapCenter}
-            heatmapData={heatmapData}
-            places={places}
-            suggestedSpots={suggestedSpots}
-          />
-        </main>
+      <div className="space-y-2 pt-4">
+        <button
+          onClick={handleSearch}
+          className="w-full bg-[#3B82F6] text-white px-4 py-2 rounded"
+        >
+          Search Location
+        </button>
+        <button
+          onClick={generateHeatmap}
+          className="w-full bg-[#EF4444] text-white px-4 py-2 rounded"
+        >
+          Generate Heatmap
+        </button>
+        <button
+          onClick={fetchBusinessMarkers}
+          className="w-full bg-[#10B981] text-white px-4 py-2 rounded"
+        >
+          Find Similar Businesses
+        </button>
+        <button
+          onClick={callGeminiForSuggestions}
+          className="w-full bg-[#FBBF24] text-black px-4 py-2 rounded font-bold"
+        >
+          Get Gemini Suggestions
+        </button>
       </div>
-    </div>
-  );
+    </aside>
+
+    {/* Map Section */}
+    <main className="flex-grow h-full">
+      <GoogleMapComponent
+        mapCenter={mapCenter}
+        heatmapData={heatmapData}
+        places={places}
+        suggestedSpots={suggestedSpots}
+      />
+    </main>
+  </div>
+);
+
 }
