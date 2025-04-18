@@ -13,8 +13,8 @@ export default function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      
-      navigate("/"); // ✅ Redirect to landing page
+      navigate("/home"); // instead of "/"
+
     } catch (error) {
       alert(`Login failed: ${error.message}`);
     }
@@ -48,6 +48,7 @@ export default function Login() {
             Login
           </button>
         </form>
+
         <p className="mt-4 text-center text-sm">
           Don’t have an account?{" "}
           <Link to="/signup" className="text-purple-600 hover:underline font-medium">

@@ -30,8 +30,9 @@ function Layout() {
 
       <Routes>
         {/* 🏠 Landing Pages */}
+        <Route path="/" element={<Login />} />
         <Route
-          path="/"
+          path="/home"
           element={
             <>
             
@@ -44,7 +45,7 @@ function Layout() {
 
         {/* 🔐 Auth Pages */}
         <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        
         <Route path="/profile" element={<Profile />} />
 
         {/* 📊 Dashboard */}

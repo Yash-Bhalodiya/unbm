@@ -10,6 +10,8 @@ export default function Dashboard() {
   const [places, setPlaces] = useState([]);
   const [selectedBusiness, setSelectedBusiness] = useState("bakery");
   const [suggestedSpots, setSuggestedSpots] = useState([]);
+  const [loadingGemini, setLoadingGemini] = useState(false);
+
 
   // Inputs for Gemini
   const [targetCustomers, setTargetCustomers] = useState("Family");
@@ -73,16 +75,11 @@ export default function Dashboard() {
   const callGeminiForSuggestions = async () => {
     if (!city) return;
 
-    const prompt = `
-      Suggest 5 ideal coordinates (latitude and longitude) in ${city} to start a ${selectedBusiness}.
-      Consider:
-      - Target Customers: ${targetCustomers}
-      - Nearby Competition: ${competition}
-      - Working Hours: ${workingHours}
-      - Delivery Services: ${delivery}
-      Format output strictly as:
-      Lat: <value>, Lng: <value>
-    `.trim();
+   const prompt = `
+Suggest exactly 5 distinct coordinates (latitude and longitude pairs in strict format Lat: <value>, Lng: <value>) within ${searchRadius} meters of ${city} ideal to open ${selectedBusiness} with
+Target Customers ${targetCustomers}, Competition preference ${competition}, Working Hours ${workingHours}, Delivery Services ${delivery}.
+  `;
+    
 
     try {
       const response = await fetch(
@@ -94,6 +91,9 @@ export default function Dashboard() {
           },
           body: JSON.stringify({
             contents: [{ role: "user", parts: [{ text: prompt }] }],
+            generationConfig: {
+              temperature: 0,
+            },
           }),
         }
       );
@@ -112,9 +112,13 @@ export default function Dashboard() {
         lng: parseFloat(m[2]),
       }));
 
+      setSuggestedSpots([]); // Clear old suggestions
       setSuggestedSpots(coordinates);
+
     } catch (error) {
       console.error("Gemini API call failed:", error);
+    } finally {
+      setLoadingGemini(false);
     }
   };
 
@@ -163,7 +167,7 @@ export default function Dashboard() {
           <option>Students</option>
         </select>
 
-        <label className="block font-semibold">Nearby Competition</label>
+        <label className="block font-semibold">Competition Preference	</label>
         <select
           value={competition}
           onChange={(e) => setCompetition(e.target.value)}
@@ -215,11 +219,17 @@ export default function Dashboard() {
             Show Nearby Businesses
           </button>
           <button
-            onClick={callGeminiForSuggestions}
-            className="w-full bg-gradient-to-r from-yellow-400 to-yellow-300 text-black font-semibold px-4 py-2 rounded shadow hover:shadow-md transition"
-          >
-            🧠 Get Gemini Suggestions
-          </button>
+  onClick={async () => {
+    setLoadingGemini(true);
+    await callGeminiForSuggestions();
+    setLoadingGemini(false);
+  }}
+  className="w-full bg-gradient-to-r from-yellow-400 to-yellow-300 text-black font-semibold px-4 py-2 rounded shadow hover:shadow-md transition"
+  disabled={loadingGemini}
+>
+  {loadingGemini ? "Thinking..." : "Get Suggested Locations"}
+</button>
+
         </div>
       </aside>
 
