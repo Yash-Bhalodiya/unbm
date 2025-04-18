@@ -7,13 +7,15 @@ export default function DashboardNav() {
       <nav className="h-16 w-screen bg-[#424242] flex items-center justify-between px-5 fixed top-0 text-white">
         <Link to="/">
         <h2 className="text-2xl font-bold text-[#F5F5F5]">Urban Nexus</h2>
+        </Link>       
 
-        </Link>
-       
         <div className="h-16 flex items-center gap-8 text-2xl">
-          <Link to="/profile">
-            <i className="fa-solid fa-user md:visible invisible cursor-pointer"></i>
-          </Link>
+            <Link to="/" className=" hover:text-lime-600 transition">
+                      <i className="fas fa-home mr-1"></i> 
+            </Link>
+            <Link to="/profile">
+                <i className="fa-solid fa-user md:visible invisible cursor-pointer"></i>
+            </Link>
         </div>
       </nav>
       {/* Add margin below the navbar */}

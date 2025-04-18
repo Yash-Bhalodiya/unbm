@@ -9,16 +9,19 @@ export default function Navbar() {
     <div>
       {/* Navbar */}
       <nav className="h-16 w-screen bg-[#d8dbe2] flex z-10 items-center justify-between px-5 pr-5 rounded-b-md md:fixed fixed top-0">
+        <Link to="/">
         <h2 className="font-bold text-2xl">Urban Nexus</h2>
+        </Link>
+        
         <div className="h-16 flex items-center gap-8 text-2xl">
           
           {/* Home Icon */}
           <Link to="/dashboard">
-            <i className="fa-solid fa-magnifying-glass md:visible invisible"></i>
+            <i className="fa-solid fa-location-dot"> </i>
           </Link>
 
-          {/* Profile Icon - links to /profile */}
-          <Link to="/profile">
+          {/* Profile Icon - links to /login*/}
+          <Link to="/login">
             <i className="fa-solid fa-user md:visible invisible cursor-pointer"></i>
           </Link>
 

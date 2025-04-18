@@ -8,16 +8,17 @@ export default function ProfileNavbar() {
       {/* Logo / Brand */}
       <Link to="/">
       <h2 className="text-2xl font-bold text-gray-800">Urban Nexus</h2>
-      </Link>
-      
+      </Link> 
 
       {/* Right Side */}
       <div className="flex items-center gap-6 text-lg">
         {/* Dashboard Link */}
-        <Link to="/dashboard" className="text-gray-600 hover:text-lime-600 transition">
-          <i className="fas fa-home mr-1"></i> Dashboard
+        <Link to="/" className="text-gray-600 hover:text-lime-600 transition ">
+          <i className="fas fa-home mr-1"></i> 
         </Link>
-       
+        <Link to="/dashboard" className="text-gray-600 hover:text-lime-600 transition" >
+          <i className="fa-solid fa-location-dot"></i>
+        </Link>
       </div>
     </nav>
   );
