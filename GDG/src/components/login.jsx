@@ -13,7 +13,7 @@ export default function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/home"); // instead of "/"
+      navigate("/");
 
     } catch (error) {
       alert(`Login failed: ${error.message}`);

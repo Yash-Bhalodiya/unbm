@@ -138,10 +138,10 @@ Target Customers ${targetCustomers}, Competition preference ${competition}, Work
           <option value="laundry">Laundry</option>
         </select>
 
-        <label className="block font-semibold">Location</label>
+        <label className="block font-semibold">Target Area</label>
         <input
           type="text"
-          placeholder="E.g. Pune City"
+          placeholder="Location, PINcode or Coordinates"
           value={city}
           onChange={(e) => setCity(e.target.value)}
           className="w-full p-2 border rounded text-black bg-[#F1F5F9]"

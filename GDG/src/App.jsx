@@ -27,6 +27,7 @@ function Layout() {
     <div className="overflow-x-hidden">
       {/* Render conditional Navbar */}
       {isDashboard ? <DashboardNav /> : <NAV />}
+      
 
       <Routes>
         {/* 🏠 Landing Pages */}

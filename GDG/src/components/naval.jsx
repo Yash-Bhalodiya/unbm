@@ -15,11 +15,6 @@ export default function Navbar() {
         
         <div className="h-16 flex items-center gap-8 text-2xl">
           
-          {/* Home Icon */}
-          <Link to="/dashboard">
-            <i className="fa-solid fa-location-dot"> </i>
-          </Link>
-
           {/* Profile Icon - links to /login*/}
           <Link to="/login">
             <i className="fa-solid fa-user md:visible invisible cursor-pointer"></i>
