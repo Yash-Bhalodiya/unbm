@@ -11,6 +11,7 @@ export default function Dashboard() {
   const [selectedBusiness, setSelectedBusiness] = useState("bakery");
   const [suggestedSpots, setSuggestedSpots] = useState([]);
   const [loadingGemini, setLoadingGemini] = useState(false);
+//yash
 
 
   // Inputs for Gemini
