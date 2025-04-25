@@ -12,13 +12,12 @@ export default function Navbar() {
         <Link to="/">
         <h2 className="font-bold text-2xl">Urban Nexus</h2>
         </Link>
-        
         <div className="h-16 flex items-center gap-8 text-2xl">
           
           {/* Home Icon */}
-          <Link to="/dashboard">
+          {/* <Link to="/dashboard">
             <i className="fa-solid fa-location-dot"> </i>
-          </Link>
+          </Link> */}
 
           {/* Profile Icon - links to /login*/}
           <Link to="/login">

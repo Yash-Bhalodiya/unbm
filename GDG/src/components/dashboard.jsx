@@ -230,6 +230,13 @@ Target Customers ${targetCustomers}, Competition preference ${competition}, Work
 >
   {loadingGemini ? "Thinking..." : "Get Suggested Locations"}
 </button>
+<button
+  onClick={() => window.print()}
+  className="w-full bg-gray-700 text-white font-semibold px-4 py-2 rounded hover:bg-gray-800 transition"
+>
+🖨 Print Results
+</button>
+
 
         </div>
       </aside>

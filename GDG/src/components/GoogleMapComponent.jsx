@@ -9,7 +9,7 @@ import {
 
 const mapContainerStyle = {
   width: "100%",
-  height: "100vh", // Full screen height
+  height: "100vh",
 };
 
 const libraries = ["visualization", "places", "geometry"];
