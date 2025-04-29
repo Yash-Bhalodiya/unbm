@@ -13,3 +13,10 @@
 body {
   background-color: black;
 }
+
+/* index.css or App.css */
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
